@@ -5,28 +5,16 @@ let
       sha256 = "1wg61h4gndm3vcprdcg7rc4s1v3jkm5xd7lw8r2f67w502y94gcy";                                
    }) {};                                
 
-   nightly = import (builtins.fetchTarball {                                
-     name = "nixos-nightly-2020-12-02";                                
-     url = "https://github.com/NixOS/nixpkgs/archive/b6bca3d80619f1565ba0ea635b0d38234e41c6bd.tar.gz";                                
-     sha256 = "09d4f6h98rmxnxzm1x07jxgrc81k6mz7fjigq375fkmb41j2kdsi";                                
-   }) {};
-
    voodoo = import (builtins.fetchGit {                                
      url = "git@github.com:VoodooTeam/nix-pkgs.git";                                
-     ref = "master";                                
+     rev = "93c824e52bf16630e08a0d6d43f728857471a93d";                                
    }) stable;
 
   in                                
   stable.mkShell {                                
     buildInputs =
        [ 
-        # go vim
-         stable.go
-         nightly.gopls
-         nightly.asmfmt
-         nightly.errcheck
-
-         voodoo.terraform_0_14_3
+         voodoo.terraform_0_14_6
      ];                                
   }      
 
