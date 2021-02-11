@@ -1,6 +1,8 @@
 # VPC endpoint demo
 
-what we're able to achieve : SSH connection from monitoring VM to target_0 & target_1
+what we're able to achieve : SSH connection from monitoring VM to both target_0 & target_1 VMs even if VPC & Subnets CIDR overlap.
+
+NB : these CIDRs actually don't have to overlap, we're displaying an edge case were they do.
 
 ## diagram of the demo
 ![architecture](./docs/architecture.png)
